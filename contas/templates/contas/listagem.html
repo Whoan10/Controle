@@ -14,29 +14,36 @@
     }
 
     body{
-      background-color: rgb(84, 84, 84);
-      color: rgb(238, 238, 238);
+      background-color: rgb(211, 240, 197);
+      color: rgb(255, 255, 255);
       text-shadow: 1px 1px 1px black;
     }
 
     h1{
       color: white;
-      padding-bottom: 1em;
+      padding-bottom: .5em;
+      text-align: center;
+      font-size: 3em;
+      padding-top: 1em;
     }
 
     table{
-      border: 1px solid white;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 5px;
+      margin-top: 1em;
+      font-size: 1.2em;
     }
 
     tr, th{
       padding: 5px;
-      background-color: grey;
-      width: 100px;
+      background-color: rgb(177, 177, 177);
+      width: 150px;
       height: 30px;
     }
 
     th{
-      border: 1px solid white;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 5px;
     }
 
     a{
@@ -47,17 +54,33 @@
 
     button{
       padding: 10px;
-      border: 1px solid black;
       border-radius: 5px;
+      border: none;
       font-size: 1em;
       font-weight: bold;
       margin-top: 2em;
       cursor: pointer;
+      margin-bottom: 1em;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      color: grey;
     }
 
-    .lado{
-      margin-left: 2em;
-      margin-top: 2em;
+    button:hover{
+      background-color: rgb(197, 197, 197);
+      color: white;
+      transition: .1s;
+    }
+
+    .lista{
+      width: 700px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+      margin: auto;
     }
 
   </style>
@@ -66,6 +89,8 @@
 <body>
   <div class="lado">
   <h1>Listagem</h1>
+
+  <div class="lista">
 
   {% for transacoes in transacoes %}
 
@@ -84,6 +109,8 @@
   {% endfor %}
 
   <a href="{% url 'nova' %}"><button>Criar nova transação</button></a>
+
+</div>
 
 </div>
 </body>

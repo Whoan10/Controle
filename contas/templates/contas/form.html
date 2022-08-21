@@ -8,12 +8,15 @@
 
   <style>
     body{
-      background-color: rgb(84, 84, 84);
+      background-color:  rgb(211, 240, 197);
       color: rgb(238, 238, 238);
+      font-size: 1.2em;
     }
 
     h1{
       color: white;
+      text-shadow: 1px 1px 1px black;
+      text-align: center;
     }
 
     a{
@@ -23,17 +26,53 @@
 
     button{
       padding: 10px;
-      border: 1px solid black;
+      border: none;
       border-radius: 5px;
       font-size: 1em;
-      font-weight: bold;
-      margin-top: 2em;
+      margin-top: 1em;
       cursor: pointer;
+      width: 200px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .lado{
-      margin-left: 2em;
-      margin-top: 2em;
+    button:hover{
+      background-color: rgb(202, 202, 202);
+    }
+
+    form{
+      width: 500px;
+      background-color: rgb(255, 255, 255);
+      padding: 10px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgb(182, 182, 182);
+      margin: auto;
+    }
+
+    input{
+      width: 100%;
+      height: 30px;
+      font-size: 1.1em;
+    }
+
+    label{
+      color: black;
+    }
+
+    a{
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: rgb(200, 200, 200);
+      transition: .1s;
+    }
+
+    a:hover{
+      background-color: rgb(255, 157, 157);
+      color: red;
     }
 
   </style>
@@ -41,15 +80,14 @@
 </head>
 <body>
   
-<h1>Bem vindo!</h1>
-<p style="font-size: 1.5em;">Digite sua transação</p>
+<h1>Adicione um item</h1>
 
   <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="divisoria"> {{ form.as_p }}<br></div>
     <button type="submit">Salvar</button><br>
     {% if transacao %}
-    <a href="{% url 'delete' transacao.id %}" style="color: white;">Deletar</a>
+    <a href="{% url 'delete' transacao.id %}">Deletar</a>
     {% endif %}
 
   </form>
